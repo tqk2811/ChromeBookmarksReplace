@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head><title>My Test Extension Options</title></head>
+<body>
+	<div style="width:800px; margin:auto">
+		<div style="height:25px">
+			<label style="float: left;width:6%;color:black;padding-top: 3px;">Search:</label>
+			<input style="float:left; width:84%" id="input_search" value="hocvientruyentranh">
+			<button style="float:left; width:7%; margin-left:3px" id="bt_search" >Search</button>
+		</div>
+		
+		<div style="height:25px">
+			<label style="float: left;width:6%;color:black;padding-top: 3px;">Replace:</label>
+			<input style="float:left; width:43%" id="input_replace">
+			<label style="float: left;width:3%;color:black;padding-top: 3px; margin-left: 3px">To:</label>
+			<input style="float:left; width:44.5%" id="input_replace2">
+		</div>
+		<div style="height:25px">
+			
+			<button id="replace_all">Replaces Url</button>
+			<button id="bt_clear" >Clear</button>
+		</div>
+	</div>	
+		<table style="margin:auto" cellpadding="1" cellspacing="1" border="1" id="table_result">
+			<thead>
+				<tr>
+					<th width="30px">Id</th>
+					<th width="530px">Name</th>
+					<th width="530px">Url</th>
+					<th width="40px">Result</th>					
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	
+	<script src="options.js"></script>
+</body>
+</html>
