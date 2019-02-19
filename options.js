@@ -69,7 +69,7 @@ function replace_all()
 					tds[0].innerText,
 					{"url": tds[2].innerText.replace(input_replace,input_replace2)},
 					replace_callback);
-				td[3].innerText = "Replaced"
+				tds[3].innerText = "Replaced"
 			}
 		}
 	}
