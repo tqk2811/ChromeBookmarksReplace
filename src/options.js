@@ -24,6 +24,7 @@ String.prototype.replaceAll = function(f,r)
 
 function search()
 {
+	clear();
 	var input_search = document.getElementById("input_search").value;
 	chrome.bookmarks.search({"query": input_search},search_callback);
 }
