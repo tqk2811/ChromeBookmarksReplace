@@ -1,6 +1,6 @@
 {
-    "name": "Bookmarks edit",
-    "description": "This is an example of a Google Chrome extension.",
+    "name": "Bookmarks Replace",
+    "description": "Bookmarks Replace",
     "version": "0.0.0.1",
     "permissions": [ "bookmarks" ],
     "background": {
