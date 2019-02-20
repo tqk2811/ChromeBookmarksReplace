@@ -1,9 +1,3 @@
-document.getElementById("bt_search").addEventListener('click',function(){ search();})
-document.getElementById("replace_all").addEventListener('click',function(){ replace_all();})
-document.getElementById("bt_clear").addEventListener('click',function(){ clear();})
-var table_ = document.getElementById("table_result");
-var table_body = table_.getElementsByTagName("tbody")[0];
-	
 Element.prototype.remove = function(){this.parentElement.removeChild(this);}
 NodeList.prototype.remove = HTMLCollection.prototype.remove=function()
 {
@@ -11,35 +5,21 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove=function()
 		if(this[i] && this[i].parentElement) 
 			this[i].parentElement.removeChild(this[i]);
 }
-String.prototype.replaceAll = function(f,r)
-{
-	var str = this;
-	while(true)
-	{
-		if(str.indexOf(f) >= 0) str = str.replace(f,r);
-		else return str;
-	}
-}
-
-
+document.getElementById("bt_search").addEventListener('click',function(){ search();})
+document.getElementById("replace_all").addEventListener('click',function(){ replace_all();})
+document.getElementById("bt_clear").addEventListener('click',function(){ clear();})
+var table_ = document.getElementById("table_result");
+var table_body = table_.getElementsByTagName("tbody")[0];
 function search()
 {
 	clear();
 	var input_search = document.getElementById("input_search").value;
 	chrome.bookmarks.search({"query": input_search},search_callback);
 }
-
 function search_callback(results)
 {
 	for(var i = 0; i< results.length; i++)
-	{
-		addrow([results[i].id,results[i].title,results[i].url,""]);
-	}
-}
-
-function addrow(cells_string)
-{
-	table_body.appendChild(create_row(cells_string))
+		table_body.appendChild(create_row(([results[i].id,results[i].title,results[i].url,""])));
 }
 function create_row(cells_string)
 {
@@ -52,7 +32,6 @@ function create_row(cells_string)
 	}
 	return tr;
 }
-
 function replace_all()
 {
 	if(window.confirm("Confirm?"))
@@ -69,18 +48,12 @@ function replace_all()
 				chrome.bookmarks.update(
 					tds[0].innerText,
 					{"url": tds[2].innerText.replace(input_replace,input_replace2)},
-					replace_callback);
+					function(r){});
 				tds[3].innerText = "Replaced"
 			}
 		}
 	}
 }
-
-function replace_callback(td)
-{
-	td.innerText = "Replaced"
-}
-
 function clear()
 {
 	var table_ = document.getElementById("table_result");
