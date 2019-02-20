@@ -1,4 +1,7 @@
 # ChromeBookmarksEdit
+When you have 100 or 1000 bookmarks in a domain.  
+Some day domain change something in url  
+
 
 Replace list urls  
 Ex:  
