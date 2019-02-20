@@ -5,4 +5,3 @@ Some day domain change something in url
   
   
 How to use: turn on chrome extension devMode and load loadUnpacked source from ``src\``
-Replace list urls
