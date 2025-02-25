@@ -19,15 +19,36 @@ function search()
 function search_callback(results)
 {
 	for(var i = 0; i< results.length; i++)
-		table_body.appendChild(create_row(([results[i].id,results[i].title,results[i].url,""])));
-}
-function create_row(cells_string)
-{
-	var tr = document.createElement("tr");
-	for(var i = 0; i < cells_string.length; i++)
 	{
-		var td = document.createElement("td");
-		td.innerText = cells_string[i];
+		if(results[i].url)
+		{
+			table_body.appendChild(create_row(results[i].id, results[i].title, results[i].url));
+		}
+	}
+}
+function create_row(id,title,url)
+{
+	let tr = document.createElement("tr");
+	{
+		let td = document.createElement("td");
+		td.innerText = id;
+		tr.appendChild(td);
+	}
+	{
+		let td = document.createElement("td");
+		td.innerText = title;
+		tr.appendChild(td);
+	}
+	{
+		let td = document.createElement("td");
+		let a = document.createElement("a");
+		a.href = url;
+		a.innerText = url;
+		td.appendChild(a);
+		tr.appendChild(td);
+	}
+	{
+		let td = document.createElement("td");//result cell
 		tr.appendChild(td);
 	}
 	return tr;
